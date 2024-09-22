@@ -11,7 +11,7 @@
     </div>
 
     <!-- Knapp för att välja vilket pass övningen ska läggas till -->
-    <div class="butttons">
+    <div class="buttons">
       <button @click="addExercise(1)">Lägg till i PASS 1</button>
       <button @click="addExercise(2)">Lägg till i PASS 2</button>
       <button @click="addExercise(3)">Lägg till i PASS 3</button>
@@ -134,9 +134,7 @@ const removeExercise = (passNumber: number, index: number) => {
 }
 .buttons{
   display: grid;
-  text-align: center;
-  place-content: center;
-  justify-content: center
+  grid-template-columns: repeat(4,1fr);
 }
 .daymeny {
   display: grid;
@@ -185,11 +183,11 @@ li {
   background-color: #ffc107;
   color: #000;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 5px; 
 }
 
 button.remove-btn {
-  background-color: #dc3545;
+  background-color: #b93945;
   color: #fff;
   border: none;
   padding: 5px 10px;
@@ -199,7 +197,7 @@ button.remove-btn {
 }
 
 button.remove-btn:hover {
-  background-color: #c82333;
+  background-color: #910917;
 }
 
 button {
