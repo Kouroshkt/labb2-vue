@@ -56,4 +56,11 @@ button {
 button:hover {
   background-color: #ddd;
 }
+
+@media (max-width: 799px) {
+  .gymImage {
+  width: 130px;
+  height: 130px;
+}
+}
 </style>

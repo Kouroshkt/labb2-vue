@@ -83,6 +83,23 @@ tr:hover {
 tbody tr:last-child td {
   border-bottom: none;
 }
+@media (min-width: 800px) and (max-width: 1100px) {
+  h2{
+    font-size: 35px;
+  }
+  table{
+    font-size: 22px;
+  }
+}
+@media (max-width: 799px) {
+  table{
+    font-size: 15px;
+  }
+  h2{
+    font-size: 20px;
+  }
 
+  
+}
 
 </style>

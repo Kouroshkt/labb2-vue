@@ -17,9 +17,16 @@ function theme() {
 </script>
 
 <template>
-  <button @click="theme">Change Theme</button>
+  <button id="buttonTheme" @click="theme">Change Theme</button>
   <Header/>
   <Images/>
   <Day/>
 </template>
+<style>
+@media (max-width: 799px){
+ #buttonTheme{
+  font-size: 12px;
+ }
+}
 
+</style>

@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="select">
-    <h2 >Välj en övning och lägg till till ett pass</h2>
+    <h1 >Välj en övning och lägg till till ett pass</h1>
     <!-- Dropdown för att välja övning -->
     <select v-model="selectedExercise">
+      <option id="option" disabled value="">Välj en övning</option>
       <option v-for="exercise in gym" :key="exercise" :value="exercise">
         {{ exercise }}
       </option>
@@ -214,4 +215,32 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+@media (min-width: 800px) and (max-width: 1100px) {
+.buttons{
+  grid-template-columns: repeat(2,1fr);
+}
+.daymeny {
+  grid-template-columns: repeat(1, 1fr);
+}
+.select select{
+  height: 35px;
+  width: 250px;
+}
+}
+@media (max-width: 799px) {
+  h1{
+    font-size: 20px;
+  }
+.buttons{
+  grid-template-columns: repeat(1,1fr);
+}
+.daymeny {
+  grid-template-columns: repeat(1, 1fr);
+}
+.select select{
+  height: 35px;
+  width: 250px;
+}
+}
+
 </style>
