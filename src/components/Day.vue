@@ -2,7 +2,6 @@
   <div>
     <div class="select">
     <h1 >Välj en övning och lägg till till ett pass</h1>
-    <!-- Dropdown för att välja övning -->
     <select v-model="selectedExercise">
       <option id="option" disabled value="">Välj en övning</option>
       <option v-for="exercise in gym" :key="exercise" :value="exercise">
@@ -11,7 +10,6 @@
     </select>
     </div>
 
-    <!-- Knapp för att välja vilket pass övningen ska läggas till -->
     <div class="buttons">
       <button @click="addExercise(1)">Lägg till i PASS 1</button>
       <button @click="addExercise(2)">Lägg till i PASS 2</button>
@@ -19,7 +17,6 @@
       <button @click="addExercise(4)">Lägg till i PASS 4</button>
     </div>
 
-    <!-- Visar passen och de tillagda övningarna -->
     <div class="daymeny">
       <div class="day">
         <h3>PASS 1</h3>
@@ -64,7 +61,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-// Gymövningar
 const gym = ref([
   "Knäböj 5 x 6-12",
   "Utfall 5 x 6-12",
@@ -94,7 +90,6 @@ const pass2 = ref<string[]>([]);
 const pass3 = ref<string[]>([]);
 const pass4 = ref<string[]>([]);
 
-// Metod för att lägga till övning i rätt pass
 const addExercise = (passNumber: number) => {
   const pass = getPass(passNumber);
   if (selectedExercise.value && !pass.includes(selectedExercise.value)) {
@@ -107,7 +102,6 @@ const addExercise = (passNumber: number) => {
   }
 };
 
-// Metod för att hämta rätt pass
 const getPass = (passNumber: number) => {
   if (passNumber === 1) return pass1.value;
   if (passNumber === 2) return pass2.value;
@@ -116,7 +110,6 @@ const getPass = (passNumber: number) => {
   return [];
 };
 
-// Metod för att ta bort en övning från ett pass
 const removeExercise = (passNumber: number, index: number) => {
   const pass = getPass(passNumber);
   pass.splice(index, 1);
@@ -228,11 +221,14 @@ button:hover {
 }
 }
 @media (max-width: 799px) {
-  h1{
+h1{
     font-size: 20px;
   }
 .buttons{
   grid-template-columns: repeat(1,1fr);
+}
+button{
+  font-size: 15px;
 }
 .daymeny {
   grid-template-columns: repeat(1, 1fr);

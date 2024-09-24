@@ -1,50 +1,60 @@
 <template>
-  <h2>Träningsschema för 4 dagar i veckan</h2>
-  <table>
-    <tbody>
-    <tr>
-      <th>Dag</th>
-      <th>Träningspass</th>
-    </tr>
-
-    <tr>
-      <td>Måndag</td>
-      <td>Pass 1</td>
-    </tr>
-
-    <tr>
-      <td>Tisdag</td>
-      <td>Vila/annan träning</td>
-    </tr>
-
-    <tr>
-      <td>Onsdag</td>
-      <td>Pass 2</td>
-    </tr>
-
-    <tr>
-      <td>Torsdag</td>
-      <td>Vila/annan träning</td>
-    </tr>
-
-    <tr>
-      <td>Fredag</td>
-      <td>Pass 3</td>
-    </tr>
-
-    <tr>
-      <td>Lördag</td>
-      <td>Pass 4</td>
-    </tr>
-
-    <tr>
-      <td>Söndag</td>
-      <td>Vila/annan träning</td>
-    </tr>
-
-    </tbody>
-  </table>
+  <div>
+    <h2>Träningsschema för 4 dagar i veckan</h2>
+    <input v-model="nameInput" ref="input" placeholder="What is your name?" v-show="!isSubmitted"/><br>
+    <button @click="submitName" ref="button" v-show="!isSubmitted">Submit</button>
+    <h3 v-if="isSubmitted">Welcome {{ nameInput }}</h3>
+    <table>
+      <tbody>
+        <tr>
+          <th>Dag</th>
+          <th>Träningspass</th>
+        </tr>
+        <tr>
+          <td>Måndag</td>
+          <td>Pass 1</td>
+        </tr>
+        <tr>
+          <td>Tisdag</td>
+          <td>Vila/annan träning</td>
+        </tr>
+        <tr>
+          <td>Onsdag</td>
+          <td>Pass 2</td>
+        </tr>
+        <tr>
+          <td>Torsdag</td>
+          <td>Vila/annan träning</td>
+        </tr>
+        <tr>
+          <td>Fredag</td>
+          <td>Pass 3</td>
+        </tr>
+        <tr>
+          <td>Lördag</td>
+          <td>Pass 4</td>
+        </tr>
+        <tr>
+          <td>Söndag</td>
+          <td>Vila/annan träning</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
+
+<script setup>
+import { ref } from 'vue'; 
+
+const nameInput = ref(""); 
+const isSubmitted = ref(false);
+
+function submitName(){
+  if(nameInput.value.trim() !== ""){
+    isSubmitted.value = true;  // Sätter variabeln till true för att dölja input och knappen
+  }
+}
+</script>
 
 <style scoped>
 h2 {
@@ -83,23 +93,22 @@ tr:hover {
 tbody tr:last-child td {
   border-bottom: none;
 }
+
 @media (min-width: 800px) and (max-width: 1100px) {
-  h2{
+  h2 {
     font-size: 35px;
   }
-  table{
+  table {
     font-size: 22px;
   }
 }
+
 @media (max-width: 799px) {
-  table{
+  table {
     font-size: 15px;
   }
-  h2{
+  h2 {
     font-size: 20px;
   }
-
-  
 }
-
 </style>

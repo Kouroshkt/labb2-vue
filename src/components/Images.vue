@@ -1,16 +1,16 @@
 <template>
   <div class="image-gallery">
-    <button @click="previousImage">←</button> <!-- Vänster-knapp -->
+    <button @click="previousImage">←</button> 
     <img :src="leftImage" alt="Gym image" class="gymImage" /> 
     <img :src="currentImage" alt="Gym image" class="gymImage" /> 
-    <button @click="nextImage">→</button> <!-- Höger-knapp -->
+    <button @click="nextImage">→</button> 
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 
-const num = ref(2); // Starta från bild 2
+const num = ref(2); 
 const leftImage = ref(`/1.jpg`);
 const currentImage = ref(`/2.jpg`);
 
